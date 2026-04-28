@@ -1,0 +1,14 @@
+ul {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+  gap: 3rem;
+}
+li {
+  list-style: none;
+  font-style: italic;
+  text-decoration: underline;
+}
+li:hover {
+  cursor: pointer;
+}

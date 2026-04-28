@@ -1,0 +1,18 @@
+<div>
+  <div class="player">
+    <img src="left-arrow.png" (click)="prev()" class="arrow cp" /><!-- LA -->
+    <!-- <img [(ngModel)]="imgSrc" />img -->
+    <img [src]="imgSrc" class="display cp" (click)="auto ? stopAuto() : startAuto()" /><!-- img -->
+    <img src="right-arrow.png" (click)="next()" class="arrow cp" /><!-- RA -->
+  </div>
+  <div class="dots">
+    <div
+      class="dot cp"
+      [class]="active == 1 ? 'dot cp filled' : 'dot cp'"
+      (click)="active = 1"
+    ></div>
+    <div class="dot cp" [class]="active == 2 ? 'dot cp filled' : 'dot cp'" (click)="tp(2)"></div>
+    <div class="dot cp" [class]="active == 3 ? 'dot cp filled' : 'dot cp'" (click)="tp(3)"></div>
+    <div class="dot cp" [class]="active == 4 ? 'dot cp filled' : 'dot cp'" (click)="tp(4)"></div>
+  </div>
+</div>
