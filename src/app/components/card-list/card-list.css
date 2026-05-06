@@ -1,0 +1,26 @@
+:host {
+  border: 2px solid orange;
+  border-radius: 5px;
+  flex: 1;
+}
+.cat {
+  width: 2rem;
+  height: 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.cat:hover {
+  background-color: rgb(153, 153, 153);
+}
+.selected {
+  background-color: black;
+  color: white;
+}
+.filter {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}

@@ -1,12 +1,25 @@
-.display {
-  width: 40rem;
-  height: 24rem;
+:host {
 }
+.display {
+  width: 19rem;
+  height: 12rem;
+}
+
+@media (min-width: 768px) {
+  .display {
+    width: 40rem;
+    height: 24rem;
+  }
+  .arrow {
+    width: 12rem;
+  }
+}
+
 .display img {
   overflow: hidden;
 }
 .arrow {
-  width: 12rem;
+  width: 2rem;
 }
 .player {
   display: flex;
@@ -23,6 +36,7 @@
   height: 1rem;
   border: 1px solid black;
   border-radius: 50%;
+  text-align: center;
 }
 .dot:hover {
   background-color: gray;

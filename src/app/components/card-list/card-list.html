@@ -1,4 +1,12 @@
 <h2>Cards</h2>
+<div class="filter">
+  <div (click)="changeFilter('all')" [class]="filter == 'all' ? 'cat selected' : 'cat'">all</div>
+  <div (click)="changeFilter('due')" [class]="filter == 'due' ? 'cat selected' : 'cat'">due</div>
+  <div (click)="changeFilter('done')" [class]="filter == 'done' ? 'cat selected' : 'cat'">done</div>
+</div>
 <div>
-  <card></card>
+  <!-- @for (task of tasksCopy; track $index) {
+    <card [Task]="task"></card>
+  } -->
+  <app-filtered-component [tasksList]="taskList" [filter]="filter" />
 </div>

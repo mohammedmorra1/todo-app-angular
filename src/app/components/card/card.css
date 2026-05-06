@@ -1,7 +1,181 @@
-.container {
-  border: 1px solid black;
-  padding: 1rem;
+:host {
+  display: block;
+  width: 100%;
 }
-h3 {
-  border-bottom: 1px solid black;
+
+.card {
+  background: wheat;
+  border: 2px solid orange;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.title {
+  color: #008148;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+.card.done .title {
+  text-decoration: line-through;
+  color: #c0392b;
+}
+
+.priority-badge {
+  padding: 0.15rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.priority-badge.high {
+  background: red;
+  color: wheat;
+  border: 1px solid #a93226;
+}
+
+.priority-badge.medium {
+  background: orange;
+  color: wheat;
+  border: 1px solid #d35400;
+}
+
+.priority-badge.low {
+  background: #008148;
+  color: wheat;
+  border: 1px solid #006b3a;
+}
+
+.description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #008148;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.meta-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.meta-item {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+}
+
+.category-badge {
+  background: #008148;
+  color: wheat;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.date-badge {
+  background: red;
+  color: wheat;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 12px;
+  background: #008148;
+  color: wheat;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  margin-top: 0.1rem;
+}
+
+.done-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.done-toggle input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkmark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #008148;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.done-toggle input:checked ~ .checkmark {
+  background: #008148;
+  border-color: #008148;
+}
+
+.done-toggle input:checked ~ .checkmark::after {
+  content: '\2713';
+  color: wheat;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.toggle-label {
+  font-size: 0.8rem;
+  color: #008148;
+}
+
+.done-toggle input:checked ~ .toggle-label {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+.card.done {
+  border-color: red;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1.25rem;
+  }
 }

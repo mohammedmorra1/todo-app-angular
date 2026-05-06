@@ -8,24 +8,25 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './carrousel.css',
 })
 export class Carrousel {
-  imgSrc: string = '1.jpg';
-  active: number = 1;
-  dots: number[] = [1, 2, 3, 4];
+  imgSrcs: string[] = ['1.jpg', '2.jpg', '3.jpg', '4.jpg'];
+  imgSrc: string = this.imgSrcs[0];
+  active: number = 0;
+  // dots: number[] = [1, 2, 3, 4];
   id: number = 0;
   auto: boolean = false;
   next() {
     this.active++;
-    this.active = this.active > 4 ? 1 : this.active;
-    this.imgSrc = `${this.active}.jpg`;
+    this.active = this.active > this.imgSrcs.length - 1 ? 0 : this.active;
+    this.imgSrc = this.imgSrcs[this.active];
   }
   prev() {
     this.active--;
-    this.active = this.active < 1 ? 4 : this.active;
-    this.imgSrc = `${this.active}.jpg`;
+    this.active = this.active < 0 ? this.imgSrcs.length - 1 : this.active;
+    this.imgSrc = this.imgSrcs[this.active];
   }
   tp(n: number) {
     this.active = n;
-    this.imgSrc = `${this.active}.jpg`;
+    this.imgSrc = this.imgSrcs[this.active];
   }
   startAuto() {
     this.auto = true;

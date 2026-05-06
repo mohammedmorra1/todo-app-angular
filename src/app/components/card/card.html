@@ -1,10 +1,29 @@
-<div class="container">
-  <h3>Title</h3>
-  <div>
-    <p>priority: low</p>
-    <p>due date: 2022-12-31</p>
-    <p>category: work</p>
-    <p>tags: angular, typescript</p>
-    <p>description: Lorem ipsum dolor sit amet.</p>
+<div class="card" [class.done]="Task.done" (click)="onCardClick()">
+  <div class="card-header">
+    <h3 class="title">{{ Task.title }}</h3>
+    <span class="priority-badge" [class]="Task.priority.toLowerCase()">{{ Task.priority }}</span>
+  </div>
+
+  <p class="description">{{ Task.desc }}</p>
+
+  <div class="meta-row">
+    <span class="meta-item category-badge">{{ Task.category }}</span>
+    <span class="meta-item date-badge">{{ Task.dueDate }}</span>
+  </div>
+
+  @if (Task.tags) {
+    <div class="tags">
+      @for (tag of Task.tags.split(','); track $index) {
+        <span class="tag">{{ tag.trim() }}</span>
+      }
+    </div>
+  }
+
+  <div class="card-footer" (click)="onCheckboxClick($event)">
+    <label class="done-toggle">
+      <input type="checkbox" [(ngModel)]="Task.done" (ngModelChange)="onCheckboxChange()" />
+      <span class="checkmark"></span>
+      <span class="toggle-label">{{ Task.done ? 'Completed' : 'Mark done' }}</span>
+    </label>
   </div>
 </div>

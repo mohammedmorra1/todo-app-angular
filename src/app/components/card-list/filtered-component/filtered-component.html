@@ -1,0 +1,5 @@
+<div>
+  @for (task of tasksCopy; track $index) {
+    <card [Task]="task" (taskDoneChanged)="filterTasks()"></card>
+  }
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import ITask from '../../types/ITask';
 
@@ -9,6 +9,7 @@ class Task implements ITask {
   dueDate: string;
   category: string;
   tags: string;
+  done: boolean;
   constructor(
     title: string,
     desc: string,
@@ -23,6 +24,7 @@ class Task implements ITask {
     this.dueDate = dueDate;
     this.category = category;
     this.tags = tags;
+    this.done = false;
   }
 }
 
@@ -33,6 +35,8 @@ class Task implements ITask {
   styleUrls: ['./Form.css'],
 })
 export class Form {
+  @Output() taskAdded = new EventEmitter<ITask>();
+
   title: string = '';
   desc: string = '';
   priority: string = '';
@@ -42,15 +46,15 @@ export class Form {
 
   tasks: ITask[] = [];
   handleSubmit(e: Event) {
-    // e.preventDefault();
     this.addTask(
       new Task(this.title, this.desc, this.priority, this.dueDate, this.category, this.tags),
     );
-    this.clear();
+    // this.clear();
   }
   addTask(task: ITask) {
-    this.tasks.push(task);
-    this.displayTasks();
+    // this.tasks.push(task);
+    // this.displayTasks();
+    this.taskAdded.emit(task);
   }
   displayTasks() {
     console.log(this.tasks);

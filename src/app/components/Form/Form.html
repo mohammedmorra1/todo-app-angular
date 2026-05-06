@@ -1,18 +1,21 @@
 <form>
-  <label for="title">Title: </label><input type="text" name="title" [(ngModel)]="title" />
-  <label for="desc">Description: </label><input type="text" name="desc" [(ngModel)]="desc" />
+  <h1>Task Form</h1>
+  <label for="title">Title: </label
+  ><input type="text" name="title" [(ngModel)]="title" autocomplete="off" />
+  <label for="desc">Description: </label
+  ><input type="text" name="desc" [(ngModel)]="desc" autocomplete="off" />
   <label for="priority">priority:</label>
   <div class="rbtns">
-    <label for="">Low</label
-    ><input type="radio" name="priority" value="low" [(ngModel)]="priority" />
-    <label for="">Medium</label
-    ><input type="radio" name="priority" value="medium" [(ngModel)]="priority" />
-    <label for="">High</label
-    ><input type="radio" name="priority" value="high" [(ngModel)]="priority" />
+    <input type="radio" name="priority" value="low" id="low" [(ngModel)]="priority" />
+    <label for="low" class="radiolabel">Low</label>
+    <input type="radio" name="priority" value="medium" id="medium" [(ngModel)]="priority" />
+    <label for="medium" class="radiolabel">Medium</label>
+    <input type="radio" name="priority" value="high" id="high" [(ngModel)]="priority" />
+    <label for="high" class="radiolabel">High</label>
   </div>
-  <label for="">Due Date:</label>
-  <input type="date" [(ngModel)]="dueDate" />
-  <label for="">Catrgory:</label>
+  <label for="dueDate">Due Date:</label>
+  <input type="date" name="dueDate" id="dueDate" [(ngModel)]="dueDate" />
+  <label for="category">Category:</label>
   <select name="Car" id="Cat" [(ngModel)]="category">
     <option value="work">work</option>
     <option value="personal">personal</option>
@@ -20,5 +23,6 @@
   </select>
   <label for="">Tags:</label>
   <textarea name="tags" id="tags" [(ngModel)]="tags"></textarea>
+  <!-- <button (click)="handleSubmit($event)">Add Task</button> -->
   <button (click)="handleSubmit($event)">Add Task</button>
 </form>
