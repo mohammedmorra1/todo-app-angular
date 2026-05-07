@@ -1,10 +1,8 @@
 <main class="main">
   <Header></Header>
   <div class="container">
-    <Form (taskAdded)="addTask($event)"></Form>
-    <card-list [taskList]="taskList"></card-list>
+    <router-outlet />
   </div>
-  <!-- <app-carrousel></app-carrousel> -->
+
   <!-- <Footer></Footer> -->
 </main>
-<router-outlet />

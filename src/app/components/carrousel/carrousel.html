@@ -1,15 +1,18 @@
-<div>
+<div class="carrousel-wrapper">
   <div class="player">
-    <img src="left-arrow.png" (click)="prev()" class="arrow cp" /><!-- LA -->
-    <!-- <img [(ngModel)]="imgSrc" />img -->
-    <img [src]="imgSrc" class="display cp" (click)="auto ? stopAuto() : startAuto()" /><!-- img -->
-    <img src="right-arrow.png" (click)="next()" class="arrow cp" /><!-- RA -->
+    <div class="arrow-container cp" (click)="prev()">
+      <img src="left-arrow.png" class="arrow" />
+    </div>
+    <img [src]="imgSrc" class="display cp" (click)="auto ? stopAuto() : startAuto()" />
+    <div class="arrow-container cp" (click)="next()">
+      <img src="right-arrow.png" class="arrow" />
+    </div>
   </div>
   <div class="dots">
     @for (dot of imgSrcs; track $index) {
       <div
         class="dot cp"
-        [class]="active == $index ? 'dot cp filled' : 'dot cp'"
+        [class.active]="active == $index"
         (click)="tp($index)"
       >
         {{ $index }}

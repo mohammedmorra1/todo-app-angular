@@ -1,11 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges } from '@angular/core';
-import { Card } from '../card/card';
 import { FilteredComponent } from './filtered-component/filtered-component';
 import ITask from '../../types/ITask';
 
 @Component({
   selector: 'card-list',
-  imports: [Card, FilteredComponent],
+  imports: [FilteredComponent],
   templateUrl: './card-list.html',
   styleUrl: './card-list.css',
 })

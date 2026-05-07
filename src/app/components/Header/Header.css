@@ -5,12 +5,22 @@
   padding: 0rem 1rem;
   box-sizing: border-box;
 }
-ul {
+.header {
+  overflow: hidden;
+}
+.nav-row {
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+ul {
+  display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 1rem;
   color: white;
+  flex-wrap: wrap;
 }
 li {
   list-style: none;
@@ -23,12 +33,28 @@ li:hover {
 }
 h1 {
   width: 100%;
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 200;
   color: wheat;
 }
+.logout-btn {
+  background: none;
+  border: none;
+  color: orange;
+  font-style: italic;
+  font-size: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+.logout-btn:hover {
+  text-decoration: underline;
+}
 @media (min-width: 768px) {
+  h1 {
+    font-size: 4rem;
+  }
   ul {
+    gap: 3rem;
     justify-content: start;
   }
 }

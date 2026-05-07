@@ -8,7 +8,9 @@ form {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  min-width: 20rem;
+  width: 100%;
+  max-width: 20rem;
+  box-sizing: border-box;
 }
 input,
 select,
@@ -78,7 +80,7 @@ input[type='radio']:checked + .radiolabel::before {
   } */
   form {
     font-size: 2rem;
-    width: 28rem;
+    min-width: 30rem;
   }
   button {
     font-size: 2rem;

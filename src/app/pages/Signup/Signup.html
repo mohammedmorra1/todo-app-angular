@@ -1,0 +1,41 @@
+<div class="signup-wrapper">
+  <form [formGroup]="form" (ngSubmit)="handleSubmit()" class="signup-form">
+    <h1>Sign Up</h1>
+
+    <label for="username">Username</label>
+    <input type="text" id="username" formControlName="username" autocomplete="off" />
+    @if (submitted && form.get('username')?.errors?.['required']) {
+      <span class="error-msg">Username is required</span>
+    }
+
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email" autocomplete="off" />
+    @if (submitted && form.get('email')?.errors?.['required']) {
+      <span class="error-msg">Email is required</span>
+    }
+    @if (submitted && form.get('email')?.errors?.['email']) {
+      <span class="error-msg">Invalid email format</span>
+    }
+
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password" />
+    @if (submitted && form.get('password')?.errors?.['required']) {
+      <span class="error-msg">Password is required</span>
+    }
+    @if (submitted && form.get('password')?.errors?.['minlength']) {
+      <span class="error-msg">Password must be at least 4 characters</span>
+    }
+
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword" />
+    @if (submitted && form.get('confirmPassword')?.errors?.['required']) {
+      <span class="error-msg">Confirm Password is required</span>
+    }
+    @if (submitted && form.errors?.['mismatch']) {
+      <span class="error-msg">Passwords do not match</span>
+    }
+
+    <button type="submit">Sign Up</button>
+    <span class="nav-link">Already have an account? <a routerLink="/login">Login</a></span>
+  </form>
+</div>

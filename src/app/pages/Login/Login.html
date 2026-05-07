@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <form #loginForm="ngForm" (ngSubmit)="handleSubmit()" class="login-form">
+    <h1>Login</h1>
+
+    <label for="username">Username</label>
+    <input
+      type="text"
+      name="username"
+      id="username"
+      [(ngModel)]="username"
+      required
+      #usernameInput="ngModel"
+      autocomplete="off"
+    />
+    @if (submitted && usernameInput.invalid) {
+      <span class="error-msg">Username is required</span>
+    }
+
+    <label for="password">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="password"
+      [(ngModel)]="password"
+      required
+      minlength="4"
+      #passwordInput="ngModel"
+    />
+    @if (submitted && passwordInput.errors?.['required']) {
+      <span class="error-msg">Password is required</span>
+    }
+    @if (submitted && passwordInput.errors?.['minlength']) {
+      <span class="error-msg">Password must be at least 4 characters</span>
+    }
+
+    <button type="submit">Login</button>
+    <span class="nav-link">Don't have an account? <a routerLink="/signup">Sign Up</a></span>
+  </form>
+</div>

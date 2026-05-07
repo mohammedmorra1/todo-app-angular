@@ -1,7 +1,10 @@
 <div class="header">
   <h1>Smart Task Manager</h1>
-  <ul>
-    <li>Task Manager</li>
-    <li>Carrousel</li>
-  </ul>
+  <div class="nav-row">
+    <ul>
+      <li><a routerLink="/">Task Manager</a></li>
+      <li><a routerLink="/carrousel">Carrousel</a></li>
+    </ul>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
 </div>
